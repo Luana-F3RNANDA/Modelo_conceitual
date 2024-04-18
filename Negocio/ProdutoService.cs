@@ -1,0 +1,55 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Dados;
+
+namespace Negocio
+{
+    class ProdutoService
+    {
+            private readonly ProdutoRepository _produtoRepository;
+
+            public ProdutoService()
+            {
+                _produtoRepository = new ProdutoRepository();
+            }
+
+            public void CadastrarProduto(int Id, string Nome, decimal Preco)
+            {
+            // Insira as validações e regras de negócio aqui
+            // Por exemplo, verificar se o email já está cadastrado
+
+            var produto = new Produto
+            {
+                id = Id,
+                nome = Nome,
+                preco = Preco,
+                };
+
+                _repository.Adicionar(cliente);
+
+            }
+
+            public void CadastrarCliente(Cliente cliente)
+            {
+                // Insira as validações e regras de negócio aqui
+                // Por exemplo, verificar se o email já está cadastrado
+
+                _repository.Adicionar(cliente);
+
+            }
+
+            public IEnumerable<Cliente> ObterTodos()
+            {
+                return _repository.ObterTodos();
+            }
+            public List<Cliente> getAll()
+            {
+                return _repository.ObterTodos().ToList<Cliente>();
+            }
+
+        }
+    }
+}
