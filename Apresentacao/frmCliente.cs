@@ -73,6 +73,7 @@ namespace Apresentacao
         {
             dgCliente.DataSource = _clienteService.getAll();
             dgCliente.Refresh();
+
         }
 
         private void btnAdicionar_Click(object sender, System.EventArgs e)
