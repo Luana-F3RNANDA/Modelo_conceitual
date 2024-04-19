@@ -80,6 +80,7 @@ namespace Apresentacao
             int id = int.Parse(txtId.Text);
             string nome = txtNome.Text;
             string email = txtEmail.Text;
+            MessageBox.Show("teste apenas", "sim");
             TipoPessoa tp = radioPessoaFisica.Checked ? TipoPessoa.PESSOA_FISICA : TipoPessoa.PESSOA_JURIDICA;
 
             _clienteService.CadastrarCliente(id, tp, nome, email);
@@ -99,6 +100,18 @@ namespace Apresentacao
         }
 
         private void dgCliente_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void txtNome_TextChanged(object sender, EventArgs e)
+        {
+
+
+
+        }
+
+        private void btnAdicionar_Click_1(object sender, EventArgs e)
         {
 
         }
