@@ -79,12 +79,25 @@ namespace Apresentacao
         private void btnAdicionar_Click(object sender, System.EventArgs e)
         {
             int id = int.Parse(txtId.Text);
-            string nome = txtNome.Text;
-            string email = txtEmail.Text;
-            MessageBox.Show("teste apenas", "sim");
             TipoPessoa tp = radioPessoaFisica.Checked ? TipoPessoa.PESSOA_FISICA : TipoPessoa.PESSOA_JURIDICA;
+            string cpf_cnpj = txtCpf_cnpj.Text;
+            string razaoSocial = txtRazaoSocial.Text;
+            DateTime DataNascimento = Convert.ToDateTime(txtDataDeNascimento.Text);
+            string Nome = txtNome.Text;
+            string rua = txtRua.Text;
+            int numero = int.Parse(txtNumero.Text);
+            string bairro = txtBairro.Text;
+            string cidade = txtCidade.Text;
+            string complemento = txtComplemento.Text;
+            string cep = txtCep.Text;
+            string telefone = txtTelefone.Text;
+            string Email = txtEmail.Text;
+            string celular = txtCelular.Text;
+            string limite = txtLimite.Text;
 
-            _clienteService.CadastrarCliente(id, tp, nome, email);
+           
+
+            _clienteService.CadastrarCliente(id, tp,cpf_cnpj, razaoSocial, DataNascimento,Nome, rua,numero,bairro,cidade,complemento,cep,telefone,Email,celular,limite);
 
 
             atualizaListaCliente();
@@ -113,6 +126,71 @@ namespace Apresentacao
         }
 
         private void btnAdicionar_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox4_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox5_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox6_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox12_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox10_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label14_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label12_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox9_TextChanged(object sender, EventArgs e)
         {
 
         }

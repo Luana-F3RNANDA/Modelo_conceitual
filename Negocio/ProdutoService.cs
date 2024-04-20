@@ -28,28 +28,28 @@ namespace Negocio
                 preco = Preco,
                 };
 
-                _repository.Adicionar(cliente);
+                _produtoRepository.Adicionar(produto);
 
             }
 
-            public void CadastrarCliente(Cliente cliente)
+            public void CadastrarProduto(Produto produto)
             {
                 // Insira as validações e regras de negócio aqui
                 // Por exemplo, verificar se o email já está cadastrado
 
-                _repository.Adicionar(cliente);
+                _produtoRepository.Adicionar(produto);
 
             }
 
-            public IEnumerable<Cliente> ObterTodos()
+            public IEnumerable<Produto> ObterTodos()
             {
-                return _repository.ObterTodos();
+                return _produtoRepository.ObterTodos();
             }
-            public List<Cliente> getAll()
+            public List<Produto> getAll()
             {
-                return _repository.ObterTodos().ToList<Cliente>();
+                return _produtoRepository.ObterTodos().ToList<Produto>();
             }
 
         }
     }
-}
+
