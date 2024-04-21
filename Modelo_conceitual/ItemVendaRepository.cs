@@ -7,22 +7,20 @@ using System.Threading.Tasks;
 
 namespace Modelo_conceitual
 {
-    public class FornecedorRepository
+    public class ItemVendaRepository
     {
-        private static List<Fornecedor> listaFornecedor = new List<Fornecedor>();
+        private static List<ItemVenda> listaItemVenda = new List<ItemVenda>();
 
-        public void Adicionar(Fornecedor fornecedor)
+        public void Adicionar(ItemVenda itemVenda)
         {
             // Aqui você poderia inserir o cliente em um banco de dados
             // Para simplificar, estamos apenas adicionando a uma lista em memória
-            listaFornecedor.Add(fornecedor);
+            listaItemVenda.Add(itemVenda);
         }
 
-        public IEnumerable<Fornecedor> ObterTodos()
+        public IEnumerable<ItemVenda> ObterTodos()
         {
-            return listaFornecedor;
+            return listaItemVenda;
         }
     }
 }
-
-
