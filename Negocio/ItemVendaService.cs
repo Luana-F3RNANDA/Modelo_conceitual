@@ -45,6 +45,7 @@ namespace Negocio
         public IEnumerable<ItemVenda> ObterTodos()
         {
             return itemVendaRepository.ObterTodos();
+
         }
         public List<ItemVenda> getAll()
         {
