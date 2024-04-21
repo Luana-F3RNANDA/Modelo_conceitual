@@ -43,6 +43,8 @@
   <ItemGroup>
     <Compile Include="Fornecedor.cs" />
     <Compile Include="FornecedorRepository.cs" />
+    <Compile Include="ItemVenda.cs" />
+    <Compile Include="ItemVendaRepository.cs" />
     <Compile Include="Produto.cs" />
     <Compile Include="ProdutoRepository.cs" />
     <Compile Include="Tipos.cs" />
