@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClienteService.cs" />
+    <Compile Include="CompraService.cs" />
     <Compile Include="FornecedorService.cs" />
     <Compile Include="ItemCompraService.cs" />
     <Compile Include="ItemVendaService.cs" />
