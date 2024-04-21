@@ -33,7 +33,7 @@ namespace Negocio
 
         }
 
-        public void CadastrarProduto(ItemVenda itemVenda)
+        public void CadastrarVenda(ItemVenda itemVenda)
         {
             // Insira as validações e regras de negócio aqui
             // Por exemplo, verificar se o email já está cadastrado
