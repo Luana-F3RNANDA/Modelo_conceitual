@@ -9,6 +9,7 @@ namespace Dados
 {
     public class Conta
     {
+
         public int id { get; set; }
         public string descricao { get; set; }
         public TipoConta tipo { get; set; }
