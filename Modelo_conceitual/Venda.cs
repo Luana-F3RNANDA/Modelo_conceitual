@@ -10,6 +10,7 @@ namespace Modelo_conceitual
     public class Venda
     {
         public SoapInteger id { get; set; }
+
         public DateTime instante { get; set; }
         public string descricao { get; set; }
         public double desconto { get; set; }
