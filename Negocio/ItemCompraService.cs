@@ -47,6 +47,7 @@ namespace Negocio
         public List<ItemCompra> getAll()
         {
             return itemCompraRepository.ObterTodos().ToList<ItemCompra>();
+
         }
 
     }
