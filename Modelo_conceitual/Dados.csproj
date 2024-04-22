@@ -43,6 +43,8 @@
   <ItemGroup>
     <Compile Include="Compra.cs" />
     <Compile Include="CompraRepository.cs" />
+    <Compile Include="ContaPagar.cs" />
+    <Compile Include="ContaPagarRepository.cs" />
     <Compile Include="ContaReceber.cs" />
     <Compile Include="ContaReceberRepository.cs" />
     <Compile Include="Fornecedor.cs" />
