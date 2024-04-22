@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Dados;
 
 namespace Negocio
+
 {
     internal class ContaService
     {
