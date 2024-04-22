@@ -48,6 +48,7 @@ namespace Negocio
         {
             return itemCompraRepository.ObterTodos().ToList<ItemCompra>();
 
+
         }
 
     }
