@@ -16,7 +16,7 @@ namespace Negocio
             controleCaixaRepository = new ControleCaixaRepository();
         }
 
-        public void CadastrarControleCaixa(int id, decimal valor, DateTime data)
+        public void CadastrarControleCaixa(int id, decimal valor, DateTime data, Caixa caixa)
         {
             // Insira as validações e regras de negócio aqui
             // Por exemplo, verificar se o email já está cadastrado
@@ -26,6 +26,7 @@ namespace Negocio
                 id = id,
                 valor = valor,
                 data= data,
+                caixa=caixa,
             };
 
             controleCaixaRepository.Adicionar(controleCaixa);

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.Remoting.Metadata.W3cXsd2001;
 using System.Text;
 using System.Threading.Tasks;
+using Dados;
 
 namespace Negocio
 {
@@ -17,7 +18,7 @@ namespace Negocio
            compraRepository = new CompraRepository();
         }
 
-        public void CadastrarCompra(SoapInteger id, DateTime intante, string descricao, double desconto, double valor_total)
+        public void CadastrarCompra(SoapInteger id, DateTime intante, string descricao, double desconto, double valor_total, Fornecedor fornecedor)
         {
             // Insira as validações e regras de negócio aqui
             // Por exemplo, verificar se o email já está cadastrado
@@ -28,7 +29,8 @@ namespace Negocio
                 instante = intante,
                 descricao = descricao,
                 desconto = desconto,
-                valor_total = valor_total
+                valor_total = valor_total,
+                fornecedor = fornecedor,
 
             };
 

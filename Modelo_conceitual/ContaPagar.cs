@@ -15,6 +15,7 @@ namespace Dados {
         public DateTime dataPagamento { get; set; }
         public MeioPagamento meioPagamento { get; set; }
         public EstadoPagamento situacao { get; set; }
+        public Conta conta { get; set; }
 
 
     }

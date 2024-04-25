@@ -194,5 +194,10 @@ namespace Apresentacao
         {
 
         }
+
+        private void radioPessoaFisica_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

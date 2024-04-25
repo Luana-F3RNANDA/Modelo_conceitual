@@ -14,5 +14,6 @@ namespace Dados
         public string descricao { get; set; }
         public TipoConta tipo { get; set; }
         public bool status { get; set; }
+        public Categoria categoria { get; set; }
     }
 }

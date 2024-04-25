@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Dados;
 
 namespace Negocio
 {
@@ -16,7 +17,7 @@ namespace Negocio
             itemCompraRepository = new ItemCompraRepository();
         }
 
-        public void CadastrarItemCompra(int quantidade, decimal preco)
+        public void CadastrarItemCompra(int quantidade, decimal preco, Produto produto, Compra compra)
         {
             // Insira as validações e regras de negócio aqui
             // Por exemplo, verificar se o email já está cadastrado
@@ -25,6 +26,8 @@ namespace Negocio
             {
                 quantidade = quantidade,
                 preco = preco,
+                produto = produto,
+                compra = compra,
             };
 
             itemCompraRepository.Adicionar(itemCompra);

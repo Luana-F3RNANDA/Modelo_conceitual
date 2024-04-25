@@ -16,7 +16,7 @@ namespace Negocio
                 _produtoRepository = new ProdutoRepository();
             }
 
-            public void CadastrarProduto(int Id, string Nome, decimal Preco)
+            public void CadastrarProduto(int Id, string Nome, decimal Preco, Fornecedor fornecedor)
             {
             // Insira as validações e regras de negócio aqui
             // Por exemplo, verificar se o email já está cadastrado
@@ -26,6 +26,7 @@ namespace Negocio
                 id = Id,
                 nome = Nome,
                 preco = Preco,
+                fornecedor = fornecedor,
                 };
 
                 _produtoRepository.Adicionar(produto);

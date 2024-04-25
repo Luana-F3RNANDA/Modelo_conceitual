@@ -16,12 +16,12 @@ namespace Negocio
             contaPagarRepository = new ContaPagarRepository();
         }
 
-        public void CadastrarConta(int Id, decimal valor, DateTime dataCadastro, DateTime dataVencimento, DateTime dataPagamento MeioPagamento meioPagamento, EstadoPagamento situacao)
+        public void CadastrarConta(int Id, decimal valor, DateTime dataCadastro, DateTime dataVencimento, DateTime dataPagamento, MeioPagamento meioPagamento, EstadoPagamento situacao, Conta conta)
         {
             // Insira as validações e regras de negócio aqui
             // Por exemplo, verificar se o email já está cadastrado
 
-            var conta = new ContaPagar
+            var contaPagar = new ContaPagar
             {
                 id = Id,
                 valor = valor,
@@ -29,19 +29,20 @@ namespace Negocio
                 dataVencimento = dataVencimento,
                 dataPagamento = dataPagamento,
                 meioPagamento = meioPagamento,
-                situacao = situacao
+                situacao = situacao,
+                conta=conta,
             };
 
-            contaPagarRepository.Adicionar(conta);
+            contaPagarRepository.Adicionar(contaPagar);
 
         }
 
-        public void CadastrarConta(ContaPagar conta)
+        public void CadastrarConta(ContaPagar contaPagar)
         {
             // Insira as validações e regras de negócio aqui
             // Por exemplo, verificar se o email já está cadastrado
 
-            contaPagarRepository.Adicionar(conta);
+            contaPagarRepository.Adicionar(contaPagar);
 
         }
 

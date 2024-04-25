@@ -17,5 +17,6 @@ namespace Dados
         public decimal valorRecebido { get; set; }
         public MeioPagamento meioPgamento { get; set; }
         public EstadoPagamento situacao { get; set; }
+        public Conta conta { get; set; }
     }
 }

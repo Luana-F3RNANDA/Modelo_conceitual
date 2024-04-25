@@ -16,12 +16,12 @@ namespace Negocio
             contaReceberRepository = new ContaReceberRepository();
         }
 
-        public void CadastrarConta(int Id, decimal valor, DateTime dataCadastro, DateTime dataVencimento, DateTime dataRecebimento, decimal valorRecebido, MeioPagamento meioPagamento, EstadoPagamento situacao)
+        public void CadastrarConta(int Id, decimal valor, DateTime dataCadastro, DateTime dataVencimento, DateTime dataRecebimento, decimal valorRecebido, MeioPagamento meioPagamento, EstadoPagamento situacao, Conta conta)
         {
             // Insira as validações e regras de negócio aqui
             // Por exemplo, verificar se o email já está cadastrado
 
-            var conta = new ContaReceber
+            var contaReceber = new ContaReceber
             {
                 id = Id,
                 valor = valor,
@@ -30,19 +30,20 @@ namespace Negocio
                 dataVencimento = dataVencimento,
                 valorRecebido = valorRecebido,
                 meioPgamento = meioPagamento,
-                situacao = situacao
+                situacao = situacao,
+                conta=conta,
             };
 
-            contaReceberRepository.Adicionar(conta);
+            contaReceberRepository.Adicionar(contaReceber);
 
         }
 
-        public void CadastrarConta(ContaReceber conta)
+        public void CadastrarConta(ContaReceber contaReceber)
         {
             // Insira as validações e regras de negócio aqui
             // Por exemplo, verificar se o email já está cadastrado
 
-            contaReceberRepository.Adicionar(conta);
+            contaReceberRepository.Adicionar(contaReceber);
 
         }
 

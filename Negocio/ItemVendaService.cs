@@ -17,7 +17,7 @@ namespace Negocio
             itemVendaRepository = new ItemVendaRepository();
         }
 
-        public void CadastrarItemVenda(int quantidade, decimal preco, decimal desconto)
+        public void CadastrarItemVenda(int quantidade, decimal preco, decimal desconto, Venda venda, Produto produto)
         {
             // Insira as validações e regras de negócio aqui
             // Por exemplo, verificar se o email já está cadastrado
@@ -26,7 +26,9 @@ namespace Negocio
             {
                 quantidade = quantidade,
                 preco = preco,
-                desconto = desconto
+                desconto = desconto,
+                venda = venda,
+                produto = produto
             };
 
             itemVendaRepository.Adicionar(itemVenda);

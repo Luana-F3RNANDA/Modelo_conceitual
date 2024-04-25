@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.Remoting.Metadata.W3cXsd2001;
 using System.Text;
 using System.Threading.Tasks;
+using Dados;
 
 namespace Modelo_conceitual
 {
@@ -11,6 +12,7 @@ namespace Modelo_conceitual
     {
         public SoapInteger id { get; set; }
 
+        public Cliente Cliente { get; set; }
         public DateTime instante { get; set; }
         public string descricao { get; set; }
         public double desconto { get; set; }

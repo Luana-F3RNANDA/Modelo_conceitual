@@ -17,7 +17,7 @@ namespace Negocio
             contaRepository = new ContaRepository();
         }
 
-        public void CadastrarConta(int Id, string descricao, TipoConta tipo, bool status)
+        public void CadastrarConta(int Id, string descricao, TipoConta tipo, bool status, Categoria categoria)
         {
             // Insira as validações e regras de negócio aqui
             // Por exemplo, verificar se o email já está cadastrado
@@ -28,6 +28,7 @@ namespace Negocio
                 descricao = descricao,
                 tipo = tipo,
                 status = status,
+                categoria=categoria,
             };
 
             contaRepository.Adicionar(conta);

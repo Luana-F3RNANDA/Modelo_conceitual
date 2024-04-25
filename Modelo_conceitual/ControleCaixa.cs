@@ -12,6 +12,7 @@ namespace Dados
         public int id { get; set; }
         public decimal valor { get; set; }
         public DateTime data {  get; set; } 
+        public Caixa caixa { get; set; } 
 
     }
 }
