@@ -16,6 +16,7 @@ namespace Modelo_conceitual
             // Aqui você poderia inserir o cliente em um banco de dados
             // Para simplificar, estamos apenas adicionando a uma lista em memória
             listaFornecedor.Add(fornecedor);
+
         }
 
         public IEnumerable<Fornecedor> ObterTodos()
