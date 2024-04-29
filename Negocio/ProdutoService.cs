@@ -7,7 +7,7 @@ using Dados;
 
 namespace Negocio
 {
-    class ProdutoService
+    public class ProdutoService
     {
             private readonly ProdutoRepository _produtoRepository;
 
