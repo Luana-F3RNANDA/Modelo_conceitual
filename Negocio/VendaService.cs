@@ -55,5 +55,14 @@ namespace Negocio
         {
             return vendaRepository.ObterTodos().ToList<Venda>();
         }
+
+        public Venda FindById(int id)
+        {
+            foreach (Venda p in vendaRepository.getAll())
+            {
+                if (p.id == id) return p;
+            }
+            return null;
+        }
     }
 }

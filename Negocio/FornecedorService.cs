@@ -63,6 +63,15 @@ namespace Negocio
             return _FornecedorRepository.ObterTodos().ToList<Fornecedor>();
         }
 
+        public Fornecedor FindById(int id)
+        {
+            foreach (Cliente c in _FornecedorRepository.getAll())
+            {
+                if (c.Id == id) return c;
+            }
+            return null;
+        }
+
     }
 }
 

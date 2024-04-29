@@ -18,9 +18,7 @@ namespace View
             ItemVendaService itemVendaServ = new ItemVendaService();
 
             //Insere alguns clientes
-            cliServ.Insert(1, TipoPessoa.PESSOA_FISICA, "Marcos Mariota", "mariota@exemplo.com");
-            cliServ.Insert(2, TipoPessoa.PESSOA_FISICA, "Carla Kambota", "caka@capisce.com");
-            cliServ.Insert(3, TipoPessoa.PESSOA_FISICA, "Microsoft Corp.", "ms@microsoft.com");
+            cliServ.CadastrarCliente(1, TipoPessoa.PESSOA_FISICA,"123456789", "José Alberto Matioli",DateTime.Now,"José","Rua feliz",2,"Bairro Alegre","Porto Alegre", "22","3333333","9999999999", " matioli@unicamp.br","88888888888","30000");
             Console.WriteLine("CLIENTES");
             foreach (Cliente cliente in cliServ.getAll())
             {
@@ -31,11 +29,9 @@ namespace View
 
 
             //Insere alguns produtos
-            prodServ.Insert(1, "Coca Cola", 4.75);
-            prodServ.Insert(2, "Cerveja Corona", 6.35);
-            prodServ.Insert(3, "Macarrão sem gluten Barilla nr.7", 16.90);
-            prodServ.Insert(4, "Sistema Operacional Ruinodous", 2590.75);
-            prodServ.Insert(5, "Office 2029", 1389.76);
+            //prodServ.CadastrarProduto(2, "Monitor LG Flatron", 1245);
+            //prodServ.CadastrarProduto(1, "Papel Sulfite", 25.50);
+            
 
             Console.WriteLine("\nPRODUTOS");
             foreach (Produto produto in prodServ.getAll())
@@ -46,7 +42,7 @@ namespace View
 
             //Insere algumas vendas
             Console.WriteLine("\nVENDAS");
-            vendaServ.Insert(1, cliServ.FindById(1), DateTime.Now, "Primeira venda, uhul", 0, 550.79);
+            vendaServ.CadastrarVenda(1, cliServ.FindById(1), DateTime.Now, "Primeira venda, uhul", 0, 550.79);
             //Itens desta venda
             itemVendaServ.Insert(1, vendaServ.FindById(1), prodServ.FindById(1), 12, 0, 4.75);
             itemVendaServ.Insert(2, vendaServ.FindById(1), prodServ.FindById(2), 24, 0, 6.25);

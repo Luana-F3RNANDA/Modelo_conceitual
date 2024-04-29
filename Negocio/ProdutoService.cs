@@ -51,6 +51,15 @@ namespace Negocio
                 return _produtoRepository.ObterTodos().ToList<Produto>();
             }
 
+        public Produto FindById(int id)
+        {
+            foreach(Produto p in _produtoRepository.getAll())
+            {
+                if (p.id == id) return p;
+            }
+            return null;
         }
+
+    }
     }
 

@@ -55,5 +55,14 @@ namespace Negocio
         {
             return compraRepository.ObterTodos().ToList<Compra>();
         }
+
+        public Compra FindById(int id)
+        {
+            foreach (Cliente c in compraRepository.getAll())
+            {
+                if (c.Id == id) return c;
+            }
+            return null;
+        }
     }
 }

@@ -21,5 +21,10 @@ namespace Dados
         {
             return _clientes;
         }
+
+        public IList<Cliente> getAll()
+        {
+            return _clientes;
+        }
     }
 }

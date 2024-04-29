@@ -22,5 +22,10 @@ namespace Modelo_conceitual
         {
             return listaItemVenda;
         }
+
+        public IList<ItemVenda> getAll()
+        {
+            return listaItemVenda;
+        }
     }
 }

@@ -64,5 +64,14 @@ namespace Negocio
             return _repository.ObterTodos().ToList<Cliente>();
         }
 
+        public Cliente FindById(int id)
+        {
+            foreach (Cliente c in _repository.getAll())
+            {
+                if (c.Id == id) return c;
+            }
+            return null;
+        }
+
     }
 }

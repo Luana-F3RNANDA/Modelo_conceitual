@@ -55,6 +55,7 @@ namespace Negocio
             return itemVendaRepository.ObterTodos().ToList<ItemVenda>();
         }
 
+
     }
 }
 

@@ -21,5 +21,10 @@ namespace Dados
         {
             return listaProduto;
         }
+
+        public IList<Produto> getAll()
+        {
+            return listaProduto;
+        }
     }
 }

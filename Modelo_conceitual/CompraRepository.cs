@@ -21,5 +21,9 @@ namespace Modelo_conceitual
         {
             return listaCompra;
         }
+        public IList<Compra> getAll()
+        {
+            return listaCompra;
+        }
     }
 }

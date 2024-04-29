@@ -22,6 +22,11 @@ namespace Modelo_conceitual
         {
             return listaFornecedor;
         }
+
+        public IList<Fornecedor> getAll()
+        {
+            return listaFornecedor;
+        }
     }
 }
 
