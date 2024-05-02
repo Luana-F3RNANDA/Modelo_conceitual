@@ -16,6 +16,7 @@ namespace Dados
         public double desconto { get; set; }
         public double valor_total { get; set; }
 
+
         public Fornecedor fornecedor { get; set; }
     }
 }
