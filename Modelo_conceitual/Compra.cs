@@ -14,6 +14,7 @@ namespace Dados
         public DateTime instante { get; set; }
         public string descricao { get; set; }
         public double desconto { get; set; }
+
         public double valor_total { get; set; }
 
 
