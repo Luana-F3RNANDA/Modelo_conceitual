@@ -21,6 +21,8 @@ namespace View
             ContaService contServ = new ContaService();
             CategoriaService catServ = new CategoriaService();
             ContaReceberService contRecServ = new ContaReceberService();
+            ControleCaixaService conCaixaServ = new ControleCaixaService();
+            CaixaService caixaServ = new CaixaService();
 
             //Insere alguns clientes
             cliServ.CadastrarCliente(1, TipoPessoa.PESSOA_FISICA,"123456789", "José Alberto Matioli",DateTime.Now,"José","Rua feliz",2,"Bairro Alegre","Porto Alegre", "22","3333333","9999999999", " matioli@unicamp.br","88888888888","30000");
@@ -106,6 +108,24 @@ namespace View
                 Console.WriteLine("{0} - {1} - {2} - {3} - {4} - {5} - {6} - {7} - {8}",
                     contaReceber.id, contaReceber.valor, contaReceber.dataCadastro, contaReceber.dataVencimento, contaReceber.dataRecebimento, contaReceber.valorRecebido, contaReceber.meioPgamento, contaReceber.situacao, contaReceber.conta);
             }
+
+            catServ.CadastrarCategoria(1, "Receita");
+            Console.WriteLine("\nCATEGORIAS");
+            foreach (Categoria categoria in catServ.getAll())
+            {
+                Console.WriteLine("{0} - {1}",
+                    categoria.id, categoria.nome);
+            }
+
+            conCaixaServ.CadastrarControleCaixa(1, 1225, data3, caixaServ.FindById(1));
+            conCaixaServ.CadastrarControleCaixa(2, 50, data1, caixaServ.FindById(2));
+            Console.WriteLine("\nCONTROLE CAIXA");
+            foreach (ControleCaixa caixa in conCaixaServ.getAll())
+            {
+                Console.WriteLine("{0} - {1} - {2}",
+                    caixa.id, caixa.valor, caixa.data, caixa.caixa);
+            }
+
 
             Console.ReadKey();
         }
