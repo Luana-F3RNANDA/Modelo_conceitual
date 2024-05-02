@@ -28,6 +28,7 @@ namespace Negocio
                 tipoPessoa = tipoPessoa,
                 cpf_cnpj = cpf_cnpj,
                 razaoSocial = razaoSocial,
+
                 Nome = nome,
                 rua = rua,
                 numero = numero,
