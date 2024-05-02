@@ -22,5 +22,9 @@ namespace Dados
             {
                 return listaCategoria;
             }
+        public IList<Categoria> getAll()
+        {
+            return listaCategoria;
         }
+    }
 }

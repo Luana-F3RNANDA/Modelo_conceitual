@@ -22,5 +22,9 @@ namespace Dados
         {
             return listaCaixa;
         }
+        public IList<Caixa> getAll()
+        {
+            return listaCaixa;
+        }
     }
 }

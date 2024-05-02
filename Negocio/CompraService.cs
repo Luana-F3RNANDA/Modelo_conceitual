@@ -18,7 +18,7 @@ namespace Negocio
            compraRepository = new CompraRepository();
         }
 
-        public void CadastrarCompra(SoapInteger id, DateTime intante, string descricao, double desconto, double valor_total, Fornecedor fornecedor)
+        public void CadastrarCompra(int id, DateTime intante, string descricao, double desconto, double valor_total, Fornecedor fornecedor)
         {
             // Insira as validações e regras de negócio aqui
             // Por exemplo, verificar se o email já está cadastrado
@@ -58,9 +58,9 @@ namespace Negocio
 
         public Compra FindById(int id)
         {
-            foreach (Cliente c in compraRepository.getAll())
+            foreach (Compra c in compraRepository.getAll())
             {
-                if (c.Id == id) return c;
+                if (c.id == id) return c;
             }
             return null;
         }

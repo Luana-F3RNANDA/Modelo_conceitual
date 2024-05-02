@@ -48,6 +48,14 @@ namespace Negocio
         {
             return caixaRepository.ObterTodos().ToList<Caixa>();
         }
+        public Caixa FindById(int id)
+        {
+            foreach (Caixa c in caixaRepository.getAll())
+            {
+                if (c.id == id) return c;
+            }
+            return null;
+        }
 
     }
 }

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Modelo_conceitual
+namespace Dados
 {
     public class FornecedorRepository
     {

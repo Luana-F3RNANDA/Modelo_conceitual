@@ -13,9 +13,14 @@ namespace View
         static void Main(string[] args)
         {
             ClienteService cliServ = new ClienteService();
+            FornecedorService fornServ = new FornecedorService();
+            CompraService compServ = new CompraService();
             ProdutoService prodServ = new ProdutoService();
             VendaService vendaServ = new VendaService();
             ItemVendaService itemVendaServ = new ItemVendaService();
+            ContaService contServ = new ContaService();
+            CategoriaService catServ = new CategoriaService();
+            ContaReceberService contRecServ = new ContaReceberService();
 
             //Insere alguns clientes
             cliServ.CadastrarCliente(1, TipoPessoa.PESSOA_FISICA,"123456789", "José Alberto Matioli",DateTime.Now,"José","Rua feliz",2,"Bairro Alegre","Porto Alegre", "22","3333333","9999999999", " matioli@unicamp.br","88888888888","30000");
@@ -26,48 +31,81 @@ namespace View
                     cliente.Id, cliente.Nome, cliente.tipoPessoa, cliente.Email);
             }
 
+            fornServ.CadastrarFornecedor(1, TipoPessoa.PESSOA_FISICA, "112233445566", "Loja do Turco", "Zé", "Rua feliz", 7, "Bairro Alegre", "Porto Alegre", "77", "333333333333", "19999888", "ze@gmail.com", "19333366666");
+            Console.WriteLine("\nFORNECEDOR");
+            foreach (Fornecedor fornecedor in fornServ.getAll())
+            {
+                Console.WriteLine("{0} - {1} - {2} - {3}",
+                   fornecedor.Id, fornecedor.tipoPessoa, fornecedor.cpf_cnpj, fornecedor.razaoSocial);
+            }
+
+            compServ.CadastrarCompra(1, DateTime.Now, "", 0, 25.50, fornServ.FindById(1));
+            compServ.CadastrarCompra(2, DateTime.Now, "", 25,1270, fornServ.FindById(1));
+            Console.WriteLine("\nCOMPRA");
+            foreach (Compra compra in compServ.getAll())
+            {
+                Console.WriteLine("{0} - {1} - {2} - {3}",
+                compra.id, compra.instante, compra.desconto, compra.valor_total);
+            }
 
 
             //Insere alguns produtos
-            //prodServ.CadastrarProduto(2, "Monitor LG Flatron", 1245);
-            //prodServ.CadastrarProduto(1, "Papel Sulfite", 25.50);
+            prodServ.CadastrarProduto(2, "Monitor LG Flatron", 1245,fornServ.FindById(1));
+            prodServ.CadastrarProduto(1, "Papel Sulfite", 25.50M,fornServ.FindById(1));
             
 
             Console.WriteLine("\nPRODUTOS");
             foreach (Produto produto in prodServ.getAll())
             {
                 Console.WriteLine("{0} - {1} - {2}",
-                    produto.Id, produto.Nome, produto.Preco);
+                    produto.id, produto.nome, produto.preco);
             }
 
             //Insere algumas vendas
             Console.WriteLine("\nVENDAS");
-            vendaServ.CadastrarVenda(1, cliServ.FindById(1), DateTime.Now, "Primeira venda, uhul", 0, 550.79);
+            vendaServ.CadastrarVenda(1, cliServ.FindById(1), DateTime.Now, "", 0, 1225.00);
+            vendaServ.CadastrarVenda(3, cliServ.FindById(1), DateTime.Now, "", 0, 50.00);
             //Itens desta venda
-            itemVendaServ.Insert(1, vendaServ.FindById(1), prodServ.FindById(1), 12, 0, 4.75);
-            itemVendaServ.Insert(2, vendaServ.FindById(1), prodServ.FindById(2), 24, 0, 6.25);
-            itemVendaServ.Insert(3, vendaServ.FindById(1), prodServ.FindById(3), 2, 0, 16.90);
-
-
-            vendaServ.Insert(2, cliServ.FindById(3), DateTime.Now, "Venda novo OS Ruindows", 0, 99874.50);
-            itemVendaServ.Insert(4, vendaServ.FindById(2), prodServ.FindById(2), 1550, 0, 2590.75);
-            itemVendaServ.Insert(5, vendaServ.FindById(2), prodServ.FindById(5), 1350, 0, 1389.76);
+            itemVendaServ.CadastrarItemVenda(1, 1245,45, vendaServ.FindById(1),prodServ.FindById(2));
+            itemVendaServ.CadastrarItemVenda(1, 25, 0, vendaServ.FindById(1), prodServ.FindById(1));
+            itemVendaServ.CadastrarItemVenda(2, 50, 0, vendaServ.FindById(3), prodServ.FindById(1));
 
             foreach (Venda v in vendaServ.getAll())
             {
                 Console.WriteLine("{0} - {1} - {2:0.00}",
-                    v.Instante.Date, v.Cliente.Nome, v.ValorTotal);
+                    v.instante.Date, v.Cliente.Nome, v.valor_total);
                 Console.WriteLine("------- ITENS ------------");
-                foreach (ItemVenda itemVenda in itemVendaServ.getItensPorVendaId(v.Id))
-                {
+                foreach (ItemVenda itemVenda in itemVendaServ.getItensPorVendaId(v.id))
+                { 
                     Console.WriteLine("\t{0} - {1} - {2}",
-                    itemVenda.Produto.Nome, itemVenda.Quantidade,
-                    itemVenda.Preco);
+                    itemVenda.produto.nome, itemVenda.quantidade,
+                    itemVenda.preco);
                 }
                 Console.WriteLine(Environment.NewLine);
             }
 
+            contServ.CadastrarConta(1, "Venda Direta", TipoConta.CONTA_RECEBER, true, catServ.FindById(1));
+            contServ.CadastrarConta(2, "Venda Corporativa", TipoConta.CONTA_RECEBER, true, catServ.FindById(1));
 
+            Console.WriteLine("\nCONTAS");
+            foreach (Conta conta in contServ.getAll())
+            {
+                Console.WriteLine("{0} - {1} - {2} - {3} - {4}",
+                    conta.id, conta.descricao, conta.tipo, conta.status, conta.categoria);
+            }
+
+            DateTime data1 = new DateTime(2024, 04, 11, 16, 06, 00);
+            DateTime data2 = new DateTime(2024, 04, 13, 23, 59, 00);
+            contRecServ.CadastrarConta(1, 50M, data1, data2, null, null, MeioPagamento.BOLETO, EstadoPagamento.PENDENTE, contServ.FindById(1));
+            DateTime data3 = new DateTime(2024, 04, 11, 12, 35, 00);
+            DateTime data4 = new DateTime(2024, 04, 12, 12, 35, 00);
+            contRecServ.CadastrarConta(2, 1225.00M, data3, data3, data4, 1225.00M, MeioPagamento.PIX, EstadoPagamento.QUITADO, contServ.FindById(2));
+            Console.WriteLine("\nCONTAS RECEBER");
+            foreach (ContaReceber contaReceber in contRecServ.getAll())
+            {
+                Console.WriteLine("{0} - {1} - {2} - {3} - {4} - {5} - {6} - {7} - {8}",
+                    contaReceber.id, contaReceber.valor, contaReceber.dataCadastro, contaReceber.dataVencimento, contaReceber.dataRecebimento, contaReceber.valorRecebido, contaReceber.meioPgamento, contaReceber.situacao, contaReceber.conta);
+            }
 
             Console.ReadKey();
         }

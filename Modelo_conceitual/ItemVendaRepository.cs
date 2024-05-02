@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Modelo_conceitual
+namespace Dados
 {
     public class ItemVendaRepository
     {
@@ -26,6 +26,10 @@ namespace Modelo_conceitual
         public IList<ItemVenda> getAll()
         {
             return listaItemVenda;
+        }
+        public IList<ItemVenda> getItemsVendaPorVendaId(int id)
+        {
+            return listaItemVenda.Where(item => item.venda.id == id).ToList();
         }
     }
 }

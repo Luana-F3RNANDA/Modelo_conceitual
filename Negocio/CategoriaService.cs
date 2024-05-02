@@ -49,5 +49,14 @@ namespace Negocio
             return categoriaRepository.ObterTodos().ToList<Categoria>();
         }
 
+        public Categoria FindById(int id)
+        {
+            foreach (Categoria c in categoriaRepository.getAll())
+            {
+                if (c.id == id) return c;
+            }
+            return null;
+        }
+
     }
 }

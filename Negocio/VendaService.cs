@@ -18,7 +18,7 @@ namespace Negocio
             vendaRepository = new VendaRepository();
         }
 
-        public void CadastrarVenda(SoapInteger id, Cliente cliente, DateTime intante, string descricao, double desconto, double valor_total)
+        public void CadastrarVenda(int id, Cliente cliente, DateTime intante, string descricao, double desconto, double valor_total)
         {
             // Insira as validações e regras de negócio aqui
             // Por exemplo, verificar se o email já está cadastrado

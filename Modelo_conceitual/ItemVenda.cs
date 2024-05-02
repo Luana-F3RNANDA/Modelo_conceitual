@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Dados;
 
-namespace Modelo_conceitual
+namespace Dados
 {
     public class ItemVenda
     {

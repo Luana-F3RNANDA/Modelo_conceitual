@@ -6,11 +6,11 @@ using System.Text;
 using System.Threading.Tasks;
 using Dados;
 
-namespace Modelo_conceitual
+namespace Dados
 {
     public class Compra
     {
-        public SoapInteger id {  get; set; }
+        public int id {  get; set; }
         public DateTime instante { get; set; }
         public string descricao { get; set; }
         public double desconto { get; set; }

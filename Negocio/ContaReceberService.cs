@@ -7,7 +7,7 @@ using Dados;
 
 namespace Negocio
 {
-    internal class ContaReceberService
+    public class ContaReceberService
     {
         private readonly ContaReceberRepository contaReceberRepository;
 
@@ -16,7 +16,7 @@ namespace Negocio
             contaReceberRepository = new ContaReceberRepository();
         }
 
-        public void CadastrarConta(int Id, decimal valor, DateTime dataCadastro, DateTime dataVencimento, DateTime dataRecebimento, decimal valorRecebido, MeioPagamento meioPagamento, EstadoPagamento situacao, Conta conta)
+        public void CadastrarConta(int Id, decimal valor, DateTime dataCadastro, DateTime dataVencimento, DateTime? dataRecebimento, decimal? valorRecebido, MeioPagamento meioPagamento, EstadoPagamento situacao, Conta conta)
         {
             // Insira as validações e regras de negócio aqui
             // Por exemplo, verificar se o email já está cadastrado

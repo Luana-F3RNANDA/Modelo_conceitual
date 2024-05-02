@@ -13,8 +13,8 @@ namespace Dados
         public decimal valor { get; set; }
         public DateTime dataCadastro { get; set; }
         public DateTime dataVencimento { get; set; }
-        public DateTime dataRecebimento { get; set; }
-        public decimal valorRecebido { get; set; }
+        public DateTime? dataRecebimento { get; set; }
+        public decimal? valorRecebido { get; set; }
         public MeioPagamento meioPgamento { get; set; }
         public EstadoPagamento situacao { get; set; }
         public Conta conta { get; set; }

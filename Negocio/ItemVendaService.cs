@@ -55,6 +55,11 @@ namespace Negocio
             return itemVendaRepository.ObterTodos().ToList<ItemVenda>();
         }
 
+        public IList<ItemVenda> getItensPorVendaId(int id)
+        {
+            return itemVendaRepository.getItemsVendaPorVendaId(id);
+        }
+
 
     }
 }

@@ -65,7 +65,7 @@ namespace Negocio
 
         public Fornecedor FindById(int id)
         {
-            foreach (Cliente c in _FornecedorRepository.getAll())
+            foreach (Fornecedor c in _FornecedorRepository.getAll())
             {
                 if (c.Id == id) return c;
             }

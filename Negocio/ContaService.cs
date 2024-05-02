@@ -8,7 +8,7 @@ using Dados;
 namespace Negocio
 
 {
-    internal class ContaService
+    public class ContaService
     {
         private readonly ContaRepository contaRepository;
 
@@ -51,6 +51,15 @@ namespace Negocio
         public List<Conta> getAll()
         {
             return contaRepository.ObterTodos().ToList<Conta>();
+        }
+
+        public Conta FindById(int id)
+        {
+            foreach (Conta c in contaRepository.getAll())
+            {
+                if (c.id == id) return c;
+            }
+            return null;
         }
 
     }
