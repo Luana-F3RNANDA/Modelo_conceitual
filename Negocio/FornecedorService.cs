@@ -31,6 +31,7 @@ namespace Negocio
                 Nome = nome,
                 rua = rua,
                 numero = numero,
+
                 bairro = bairro,
                 cidade = cidade,
                 complemento = complemento,
