@@ -215,7 +215,7 @@ namespace Apresentacao
             string razaoSocial;
             string Nome;
             string rua;
-            int numero;
+            string numero;
             string bairro;
             string cidade;
             string complemento;
@@ -248,29 +248,29 @@ namespace Apresentacao
 
             if (modo == 1)
             {
-                resultado = _fornecedorService.Update(null, tp, cpf_cnpj, tp, Nome, rua, Email);
+                resultado = _fornecedorService.Update(null, tp, cpf_cnpj, null, Nome, rua, numero, bairro, cidade, complemento, cep, telefone, Email, celular);
                 if (resultado == "SUCESSO")
                 {
-                    msg = "CLIENTE cadastrado com sucesso!";
+                    msg = "FORNECEDOR cadastrado com sucesso!";
                     carregaGridView();
                 }
                 else
                 {
-                    msg = "Falha ao cadastrar PRODUTO!";
+                    msg = "Falha ao cadastrar FORNECEDOR!";
                 }
                 MessageBox.Show(msg, "Aviso do sistema!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else if (modo == 2)
             {
-                resultado = _clienteService.Update(id, tp, nome, email);
+                resultado = _fornecedorService.Update(Id, tp, cpf_cnpj, null, Nome, rua, numero, bairro, cidade, complemento, cep, telefone, Email, celular);
                 if (resultado == "SUCESSO")
                 {
-                    msg = "CLIENTE atualizado com sucesso!";
+                    msg = "FORNECEDOR atualizado com sucesso!";
                     carregaGridView();
                 }
                 else
                 {
-                    msg = "Falha ao atualizar CLIENTE!";
+                    msg = "Falha ao atualizar FORNECEDOR!";
                 }
                 MessageBox.Show(msg, "Aviso do sistema!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
