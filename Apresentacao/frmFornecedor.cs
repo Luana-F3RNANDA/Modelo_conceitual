@@ -126,36 +126,36 @@ namespace Apresentacao
             dgFornecedor.Columns[3].DataPropertyName = "tipoPessoa";
 
             dgFornecedor.Columns[4].Width = 100;
-            dgFornecedor.Columns[4].HeaderText = "TIPO";
-            dgFornecedor.Columns[4].DataPropertyName = "tipoPessoa";
+            dgFornecedor.Columns[4].HeaderText = "CPF_CNPJ";
+            dgFornecedor.Columns[4].DataPropertyName = "cpf_cnpj";
 
             dgFornecedor.Columns[5].Width = 100;
-            dgFornecedor.Columns[5].HeaderText = "TIPO";
-            dgFornecedor.Columns[5].DataPropertyName = "tipoPessoa";
+            dgFornecedor.Columns[5].HeaderText = "RUA";
+            dgFornecedor.Columns[5].DataPropertyName = "rua";
 
             dgFornecedor.Columns[6].Width = 100;
-            dgFornecedor.Columns[6].HeaderText = "TIPO";
-            dgFornecedor.Columns[6].DataPropertyName = "tipoPessoa";
+            dgFornecedor.Columns[6].HeaderText = "NUMERO";
+            dgFornecedor.Columns[6].DataPropertyName = "numero";
 
             dgFornecedor.Columns[7].Width = 100;
-            dgFornecedor.Columns[7].HeaderText = "TIPO";
-            dgFornecedor.Columns[7].DataPropertyName = "tipoPessoa";
+            dgFornecedor.Columns[7].HeaderText = "BAIRRO";
+            dgFornecedor.Columns[7].DataPropertyName = "bairro";
 
             dgFornecedor.Columns[8].Width = 100;
-            dgFornecedor.Columns[8].HeaderText = "TIPO";
-            dgFornecedor.Columns[8].DataPropertyName = "tipoPessoa";
+            dgFornecedor.Columns[8].HeaderText = "CIDADE";
+            dgFornecedor.Columns[8].DataPropertyName = "cidade";
 
             dgFornecedor.Columns[8].Width = 100;
-            dgFornecedor.Columns[8].HeaderText = "TIPO";
-            dgFornecedor.Columns[8].DataPropertyName = "tipoPessoa";
+            dgFornecedor.Columns[8].HeaderText = "COMPLEMENTO";
+            dgFornecedor.Columns[8].DataPropertyName = "complemento";
 
             dgFornecedor.Columns[8].Width = 100;
-            dgFornecedor.Columns[8].HeaderText = "TIPO";
-            dgFornecedor.Columns[8].DataPropertyName = "tipoPessoa";
+            dgFornecedor.Columns[8].HeaderText = "CEP";
+            dgFornecedor.Columns[8].DataPropertyName = "cep";
 
             dgFornecedor.Columns[9].Width = 100;
-            dgFornecedor.Columns[9].HeaderText = "TIPO";
-            dgFornecedor.Columns[9].DataPropertyName = "tipoPessoa";
+            dgFornecedor.Columns[9].HeaderText = "TELEFONE";
+            dgFornecedor.Columns[9].DataPropertyName = "tipo";
 
             dgFornecedor.Columns[10].Width = 100;
             dgFornecedor.Columns[10].HeaderText = "TIPO";
@@ -363,6 +363,11 @@ namespace Apresentacao
         }
 
         private void pessoaFisica_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtId_TextChanged_1(object sender, EventArgs e)
         {
 
         }

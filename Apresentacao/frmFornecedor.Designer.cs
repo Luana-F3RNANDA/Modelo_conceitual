@@ -421,6 +421,7 @@ namespace Apresentacao
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(58, 23);
             this.txtId.TabIndex = 35;
+            this.txtId.TextChanged += new System.EventHandler(this.txtId_TextChanged_1);
             // 
             // frmFornecedor
             // 
@@ -436,7 +437,6 @@ namespace Apresentacao
             this.Controls.Add(this.dgFornecedor);
             this.Name = "frmFornecedor";
             this.Text = "Cadastro de Fornecedor";
-            this.Load += new System.EventHandler(this.frmFornecedor_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgFornecedor)).EndInit();
             this.grpDados.ResumeLayout(false);
             this.grpDados.PerformLayout();
