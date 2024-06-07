@@ -177,8 +177,8 @@ namespace Apresentacao
 
         private void carregaGridView()
         {
-            dgCliente.DataSource = _clienteService.getAll();
-            dgCliente.Refresh();
+            dgFornecedor.DataSource = _fornecedorService.getAll();
+            dgFornecedor.Refresh();
         }
 
         private void dgCliente_SelectionChanged(object sender, EventArgs e)
@@ -197,41 +197,61 @@ namespace Apresentacao
                 radioPessoaJuridica.Checked = true;
         }
 
-        private void btnAltera_Click(object sender, EventArgs e)
+        private void btnAlterar_Click(object sender, EventArgs e)
         {
             modo = 2;
             Habilita();
         }
 
-        private void btnInclui_Click(object sender, EventArgs e)
+        private void btnNovo_Click(object sender, EventArgs e)
         {
             modo = 1;
             Habilita();
             LimpaForm();
         }
 
-        private void btnSalva_Click(object sender, EventArgs e)
+        private void btnSalvar_Click(object sender, EventArgs e)
         {
-            int id = 0;
-            string nome;
-            string email;
+            int Id;
+            TipoPessoa tipoPessoa;
+            string cpf_cnpj;
+            string razaoSocial;
+            string Nome;
+            string rua;
+            int numero;
+            string bairro;
+            string cidade;
+            string complemento;
+            string cep;
+            string telefone;
+            string Email;
+            string celular;
+
             string resultado;
             string msg;
             int regAtual = 0;
 
             if (String.IsNullOrEmpty(txtId.Text))
-                id = -1;
+                Id = -1;
             else
-                id = Convert.ToInt32(txtId.Text);
+                Id = Convert.ToInt32(txtId.Text);
 
-            nome = txtNome.Text;
-            email = txtEmail.Text;
-
-            TipoPessoa tp = radioPessoaFisica.Checked ? TipoPessoa.PESSOA_FISICA : TipoPessoa.PESSOA_JURIDICA;
+            Nome = txtNome.Text;
+            Email = txtEmail.Text;
+            TipoPessoa tp = pessoaFisica.Checked ? TipoPessoa.PESSOA_FISICA : TipoPessoa.PESSOA_JURIDICA;
+            cpf_cnpj = txtCpf.Text;
+            rua = txtRua.Text;
+            numero = txtNumero.Text;
+            bairro = txtBairro.Text;
+            cidade = txtCidade.Text;
+            complemento = txtComplemento.Text;
+            cep = txtCep.Text;
+            telefone = txtTelefone.Text;
+            celular = txtTelefone.Text;
 
             if (modo == 1)
             {
-                resultado = _clienteService.Update(null, tp, nome, email);
+                resultado = _fornecedorService.Update(null, tp, cpf_cnpj, tp, Nome, rua, Email);
                 if (resultado == "SUCESSO")
                 {
                     msg = "CLIENTE cadastrado com sucesso!";
