@@ -28,7 +28,7 @@ namespace Dados
         {
         }
 
-        public Fornecedor(int? id, TipoPessoa tipoPessoa, string cpf_cnpj, string razaoSocial, string nome, string rua, int numero, string bairro, string cidade, string complemento, string cep, string telefone, string email, string celular)
+        public Fornecedor(int? id, TipoPessoa tipoPessoa, string cpf_cnpj, string razaoSocial, string nome, string rua, string numero, string bairro, string cidade, string complemento, string cep, string telefone, string email, string celular)
         {
             Id = id;
             this.tipoPessoa = tipoPessoa;
@@ -74,7 +74,7 @@ namespace Dados
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(razaoSocial);
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Nome);
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(rua);
-            hashCode = hashCode * -1521134295 + numero.GetHashCode();
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(numero);
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(bairro);
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(cidade);
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(complemento);
