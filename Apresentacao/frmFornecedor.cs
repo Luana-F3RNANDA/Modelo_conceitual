@@ -107,7 +107,7 @@ namespace Apresentacao
             pessoaJuridica.Text = TipoPessoa.PESSOA_JURIDICA.ToString();
 
             // NOVO ====================
-            dgFornecedor.ColumnCount = 13;
+            dgFornecedor.ColumnCount = 11;
             dgFornecedor.AutoGenerateColumns = false;
             dgFornecedor.Columns[0].Width = 20;
             dgFornecedor.Columns[0].HeaderText = "ID";
@@ -158,12 +158,9 @@ namespace Apresentacao
             dgFornecedor.Columns[9].DataPropertyName = "tipo";
 
             dgFornecedor.Columns[10].Width = 100;
-            dgFornecedor.Columns[10].HeaderText = "TIPO";
-            dgFornecedor.Columns[10].DataPropertyName = "tipoPessoa";
+            dgFornecedor.Columns[10].HeaderText = "CELULAR";
+            dgFornecedor.Columns[10].DataPropertyName = "celular";
 
-            dgFornecedor.Columns[11].Width = 100;
-            dgFornecedor.Columns[11].HeaderText = "TIPO";
-            dgFornecedor.Columns[11].DataPropertyName = "tipoPessoa";
 
 
             dgFornecedor.AllowUserToAddRows = false;
@@ -181,20 +178,20 @@ namespace Apresentacao
             dgFornecedor.Refresh();
         }
 
-        private void dgCliente_SelectionChanged(object sender, EventArgs e)
+        private void dgFornecedor_SelectionChanged(object sender, EventArgs e)
         {
             DataGridView row = (DataGridView)sender;
             if (row.CurrentRow == null)
                 return;
 
             //limpa os TextBoxes
-            txtId.Text = dgCliente.CurrentRow.Cells[0].Value.ToString();
-            txtNome.Text = dgCliente.CurrentRow.Cells[1].Value.ToString();
-            txtEmail.Text = dgCliente.CurrentRow.Cells[2].Value.ToString();
-            if (dgCliente.CurrentRow.Cells[3].Value.ToString() == ((int)TipoPessoa.PESSOA_FISICA).ToString())
-                radioPessoaFisica.Checked = true;
+            txtId.Text = dgFornecedor.CurrentRow.Cells[0].Value.ToString();
+            txtNome.Text = dgFornecedor.CurrentRow.Cells[1].Value.ToString();
+            txtEmail.Text = dgFornecedor.CurrentRow.Cells[2].Value.ToString();
+            if (dgFornecedor.CurrentRow.Cells[3].Value.ToString() == ((int)TipoPessoa.PESSOA_FISICA).ToString())
+                pessoaFisica.Checked = true;
             else
-                radioPessoaJuridica.Checked = true;
+                pessoaJuridica.Checked = true;
         }
 
         private void btnAlterar_Click(object sender, EventArgs e)
@@ -283,7 +280,7 @@ namespace Apresentacao
 
         }
 
-        private void btnExclui_Click(object sender, EventArgs e)
+        private void btnExcluir_Click(object sender, EventArgs e)
         {
             string resultado;
             String msg;
@@ -291,40 +288,26 @@ namespace Apresentacao
             resposta = MessageBox.Show("Confirma exclusão?", "Aviso do sistema!", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
             if (resposta == DialogResult.OK)
             {
-                int idCliente = Convert.ToInt32(txtId.Text);
-                resultado = _clienteService.Remove(idCliente);
+                int idFornecedor = Convert.ToInt32(txtId.Text);
+                resultado = _fornecedorService.Remove(idFornecedor);
                 if (resultado == "SUCESSO")
                 {
-                    msg = "CLIENTE excluido com sucesso!";
+                    msg = "FORNECEDOR excluido com sucesso!";
                     carregaGridView();
                 }
                 else
                 {
-                    msg = "Falha ao excluir CLIENTE!";
+                    msg = "Falha ao excluir FORNECEDOR!";
                 }
                 MessageBox.Show(msg, "Aviso do sistema!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
         }
 
-        private void btnCancela_Click(object sender, EventArgs e)
+        private void btnCancelar_Click(object sender, EventArgs e)
         {
             modo = 0;
             Habilita();
-        }
-
-        private void btnBusca_Click(object sender, EventArgs e)
-        {
-            frmPrompt f = new frmPrompt();
-            string txtBusca = "";
-            f.ShowDialog();
-            txtBusca = f.Texto;
-            DataTable tbClientes = _clienteService.filterByName(txtBusca);
-            if (tbClientes != null)
-            {
-                dgCliente.DataSource = tbClientes;
-                dgCliente.Refresh();
-            }
         }
 
         private void grpDados_Enter(object sender, EventArgs e)
@@ -337,10 +320,6 @@ namespace Apresentacao
 
         }
 
-        public frmFornecedor()
-        {
-            InitializeComponent();
-        }
 
         private void txtCpf_TextChanged(object sender, EventArgs e)
         {
@@ -352,10 +331,7 @@ namespace Apresentacao
 
         }
 
-        private void txtNome_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+      
 
         private void textBox5_TextChanged(object sender, EventArgs e)
         {
@@ -377,10 +353,6 @@ namespace Apresentacao
 
         }
 
-        private void frmFornecedor_Load(object sender, EventArgs e)
-        {
-
-        }
 
         private void pessoaFisica_CheckedChanged(object sender, EventArgs e)
         {
@@ -388,6 +360,11 @@ namespace Apresentacao
         }
 
         private void txtId_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtNome_TextChanged_1(object sender, EventArgs e)
         {
 
         }
