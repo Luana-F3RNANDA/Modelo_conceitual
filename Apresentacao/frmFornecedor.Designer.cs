@@ -405,6 +405,7 @@ namespace Apresentacao
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(307, 23);
             this.txtNome.TabIndex = 37;
+            this.txtNome.TextChanged += new System.EventHandler(this.txtNome_TextChanged_1);
             // 
             // txtCpf
             // 
