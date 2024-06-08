@@ -22,7 +22,7 @@ namespace Dados
                 MySqlCommand SqlCmd = new MySqlCommand
                 {
                     Connection = Connection.SqlCon,
-                    CommandText = "INSERT INTO fornecedor (tipoPessoa, cpf_cnpj, razao_social, rua, numero, bairro, cidade, complemento, cep, telefone, celular, email, nome) VALUES (@pTipoPessoa, @pCpf_cnpj, @pRazao_social, @pRua, @pNumero, @pBairro, @pCidade, @pComplemento, @pCep, @pTelefone,@pCelular, @pEmail) ",
+                    CommandText = "INSERT INTO fornecedor (tipoPessoa, cpf_cnpj, razao_social, rua, numero, bairro, cidade, complemento, cep, telefone, celular, email, nome) VALUES (@pTipoPessoa, @pCpf_cnpj, @pRazao_social, @pRua, @pNumero, @pBairro, @pCidade, @pComplemento, @pCep, @pTelefone,@pCelular, @pEmail, @pNome) ",
                     CommandType = CommandType.Text
                 };
                 SqlCmd.Parameters.AddWithValue("pNome", fornecedor.Nome);
@@ -64,7 +64,7 @@ namespace Dados
                 Connection.getConnection();
 
                 string updateSql = String.Format("UPDATE fornecedor SET " +
-                                    " email = @pEmail, tipoPessoa = @pTipoPessoa, cpf_cnpj = @pcpf_cnpj, razao_social= @pRazao_social, rua = @pRua, numero = @pNumero, bairro = @pBairro, cidade = @pCidade, complemento = @pComplemento, cep = @pCep, telefone = @pTelefone, celular = @pCelular, email = @pEmail, nome = @pNome " + 
+                                    " tipoPessoa = @pTipoPessoa, cpf_cnpj = @pcpf_cnpj, razao_social= @pRazao_social, rua = @pRua, numero = @pNumero, bairro = @pBairro, cidade = @pCidade, complemento = @pComplemento, cep = @pCep, telefone = @pTelefone, celular = @pCelular, email = @pEmail, nome = @pNome " + 
                                     "WHERE id = @pId ");
                 MySqlCommand SqlCmd = new MySqlCommand(updateSql, Connection.SqlCon);
                 SqlCmd.Parameters.AddWithValue("pNome", fornecedor.Nome);

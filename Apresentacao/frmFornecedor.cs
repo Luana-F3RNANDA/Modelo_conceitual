@@ -194,20 +194,76 @@ namespace Apresentacao
                 pessoaJuridica.Checked = true;
         }
 
-        private void btnAlterar_Click(object sender, EventArgs e)
+
+
+        
+
+        private void grpDados_Enter(object sender, EventArgs e)
         {
-            modo = 2;
-            Habilita();
+
         }
 
-        private void btnNovo_Click(object sender, EventArgs e)
+        private void txtNome_TextChanged(object sender, EventArgs e)
         {
-            modo = 1;
-            Habilita();
-            LimpaForm();
+
         }
 
-        private void btnSalvar_Click(object sender, EventArgs e)
+
+        private void txtCpf_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+      
+
+        private void textBox5_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtId_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+      
+        private void textBox1_DragEnter(object sender, DragEventArgs e)
+        {
+
+        }
+
+
+        private void pessoaFisica_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtId_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtNome_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgFornecedor_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void txtEmail_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSalvar_Click_1(object sender, EventArgs e)
         {
             int Id;
             TipoPessoa tipoPessoa;
@@ -280,7 +336,7 @@ namespace Apresentacao
 
         }
 
-        private void btnExcluir_Click(object sender, EventArgs e)
+        private void btnExcluir_Click_1(object sender, EventArgs e)
         {
             string resultado;
             String msg;
@@ -301,72 +357,25 @@ namespace Apresentacao
                 }
                 MessageBox.Show(msg, "Aviso do sistema!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-
         }
 
-        private void btnCancelar_Click(object sender, EventArgs e)
+        private void btnNovo_Click_1(object sender, EventArgs e)
         {
-            modo = 0;
+            modo = 1;
+            Habilita();
+            LimpaForm();
+        }
+
+        private void btnAlterar_Click_1(object sender, EventArgs e)
+        {
+            modo = 2;
             Habilita();
         }
 
-        private void grpDados_Enter(object sender, EventArgs e)
+        private void btnCancelar_Click_1(object sender, EventArgs e)
         {
-
-        }
-
-        private void txtNome_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-
-        private void txtCpf_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-      
-
-        private void textBox5_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtId_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnNovo_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_DragEnter(object sender, DragEventArgs e)
-        {
-
-        }
-
-
-        private void pessoaFisica_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtId_TextChanged_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtNome_TextChanged_1(object sender, EventArgs e)
-        {
-
+            modo = 0;
+            Habilita();
         }
     }
 }

@@ -75,6 +75,8 @@ namespace Apresentacao
             this.dgFornecedor.Name = "dgFornecedor";
             this.dgFornecedor.Size = new System.Drawing.Size(720, 147);
             this.dgFornecedor.TabIndex = 28;
+            this.dgFornecedor.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgFornecedor_CellContentClick);
+            this.dgFornecedor.SelectionChanged += new System.EventHandler(this.dgFornecedor_SelectionChanged);
             // 
             // btnNovo
             // 
@@ -85,7 +87,7 @@ namespace Apresentacao
             this.btnNovo.TabIndex = 29;
             this.btnNovo.Text = "Novo";
             this.btnNovo.UseVisualStyleBackColor = true;
-            this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
+            this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click_1);
             // 
             // btnAlterar
             // 
@@ -96,6 +98,7 @@ namespace Apresentacao
             this.btnAlterar.TabIndex = 30;
             this.btnAlterar.Text = "Alterar";
             this.btnAlterar.UseVisualStyleBackColor = true;
+            this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click_1);
             // 
             // btnExcluir
             // 
@@ -106,6 +109,7 @@ namespace Apresentacao
             this.btnExcluir.TabIndex = 31;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = true;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click_1);
             // 
             // btnSalvar
             // 
@@ -116,6 +120,7 @@ namespace Apresentacao
             this.btnSalvar.TabIndex = 32;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = true;
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click_1);
             // 
             // btnCancelar
             // 
@@ -126,6 +131,7 @@ namespace Apresentacao
             this.btnCancelar.TabIndex = 35;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click_1);
             // 
             // grpDados
             // 
@@ -397,6 +403,7 @@ namespace Apresentacao
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(253, 23);
             this.txtEmail.TabIndex = 38;
+            this.txtEmail.TextChanged += new System.EventHandler(this.txtEmail_TextChanged);
             // 
             // txtNome
             // 
@@ -438,6 +445,7 @@ namespace Apresentacao
             this.Controls.Add(this.dgFornecedor);
             this.Name = "frmFornecedor";
             this.Text = "Cadastro de Fornecedor";
+            this.Load += new System.EventHandler(this.frmFornecedor_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgFornecedor)).EndInit();
             this.grpDados.ResumeLayout(false);
             this.grpDados.PerformLayout();

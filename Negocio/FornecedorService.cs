@@ -20,7 +20,7 @@ namespace Negocio
             _FornecedorRepository = new FornecedorRepository();
         }
 
-        public string Update(int? id, TipoPessoa tipoPessoa, string cpf_cnpj, string razaoSocial, string nome, string rua, int numero, string bairro, string cidade, string complemento, string cep, string telefone, string email, string celular)
+        public string Update(int? id, TipoPessoa tipoPessoa, string cpf_cnpj, string razaoSocial, string nome, string rua, string numero, string bairro, string cidade, string complemento, string cep, string telefone, string email, string celular)
         {
             // Insira as validações e regras de negócio aqui
             // Por exemplo, verificar se o email já está cadastrado
