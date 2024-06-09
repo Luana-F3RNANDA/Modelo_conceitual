@@ -421,6 +421,7 @@ namespace Apresentacao
             this.txtCpf.Name = "txtCpf";
             this.txtCpf.Size = new System.Drawing.Size(307, 23);
             this.txtCpf.TabIndex = 36;
+            this.txtCpf.TextChanged += new System.EventHandler(this.txtCpf_TextChanged_1);
             // 
             // txtId
             // 

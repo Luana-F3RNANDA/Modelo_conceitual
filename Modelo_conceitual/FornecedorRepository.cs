@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
+using MySqlX.XDevAPI;
 
 namespace Dados
 {
@@ -80,6 +81,7 @@ namespace Dados
                 SqlCmd.Parameters.AddWithValue("pCep", fornecedor.cep);
                 SqlCmd.Parameters.AddWithValue("pTelefone", fornecedor.telefone);
                 SqlCmd.Parameters.AddWithValue("pCelular", fornecedor.celular);
+                SqlCmd.Parameters.AddWithValue("pId", fornecedor.Id);
 
                 //executa o stored procedure
                 resp = SqlCmd.ExecuteNonQuery() == 1 ? "SUCESSO" : "FALHA";

@@ -107,7 +107,7 @@ namespace Apresentacao
             pessoaJuridica.Text = TipoPessoa.PESSOA_JURIDICA.ToString();
 
             // NOVO ====================
-            dgFornecedor.ColumnCount = 11;
+            dgFornecedor.ColumnCount = 13;
             dgFornecedor.AutoGenerateColumns = false;
             dgFornecedor.Columns[0].Width = 20;
             dgFornecedor.Columns[0].HeaderText = "ID";
@@ -119,10 +119,10 @@ namespace Apresentacao
 
             dgFornecedor.Columns[2].Width = 300;
             dgFornecedor.Columns[2].HeaderText = "EMAIL";
-            dgFornecedor.Columns[2].DataPropertyName = "email";
+            dgFornecedor.Columns[2].DataPropertyName = "Email";
 
             dgFornecedor.Columns[3].Width = 100;
-            dgFornecedor.Columns[3].HeaderText = "TIPO";
+            dgFornecedor.Columns[3].HeaderText = "TIPO PESSOA";
             dgFornecedor.Columns[3].DataPropertyName = "tipoPessoa";
 
             dgFornecedor.Columns[4].Width = 100;
@@ -145,21 +145,23 @@ namespace Apresentacao
             dgFornecedor.Columns[8].HeaderText = "CIDADE";
             dgFornecedor.Columns[8].DataPropertyName = "cidade";
 
-            dgFornecedor.Columns[8].Width = 100;
-            dgFornecedor.Columns[8].HeaderText = "COMPLEMENTO";
-            dgFornecedor.Columns[8].DataPropertyName = "complemento";
-
-            dgFornecedor.Columns[8].Width = 100;
-            dgFornecedor.Columns[8].HeaderText = "CEP";
-            dgFornecedor.Columns[8].DataPropertyName = "cep";
-
             dgFornecedor.Columns[9].Width = 100;
-            dgFornecedor.Columns[9].HeaderText = "TELEFONE";
-            dgFornecedor.Columns[9].DataPropertyName = "tipo";
+            dgFornecedor.Columns[9].HeaderText = "COMPLEMENTO";
+            dgFornecedor.Columns[9].DataPropertyName = "complemento";
 
             dgFornecedor.Columns[10].Width = 100;
-            dgFornecedor.Columns[10].HeaderText = "CELULAR";
-            dgFornecedor.Columns[10].DataPropertyName = "celular";
+            dgFornecedor.Columns[10].HeaderText = "CEP";
+            dgFornecedor.Columns[10].DataPropertyName = "cep";
+
+            dgFornecedor.Columns[11].Width = 100;
+            dgFornecedor.Columns[11].HeaderText = "TELEFONE";
+            dgFornecedor.Columns[11].DataPropertyName = "telefone";
+
+            dgFornecedor.Columns[12].Width = 100;
+            dgFornecedor.Columns[12].HeaderText = "CELULAR";
+            dgFornecedor.Columns[12].DataPropertyName = "celular";
+
+         
 
 
 
@@ -188,6 +190,17 @@ namespace Apresentacao
             txtId.Text = dgFornecedor.CurrentRow.Cells[0].Value.ToString();
             txtNome.Text = dgFornecedor.CurrentRow.Cells[1].Value.ToString();
             txtEmail.Text = dgFornecedor.CurrentRow.Cells[2].Value.ToString();
+            txtCpf.Text = dgFornecedor.CurrentRow.Cells[4].Value.ToString();
+            txtBairro.Text = dgFornecedor.CurrentRow.Cells[7].Value.ToString();
+            txtComplemento.Text = dgFornecedor.CurrentRow.Cells[9].Value.ToString();
+            txtRua.Text = dgFornecedor.CurrentRow.Cells[5].Value.ToString();
+            txtNumero.Text = dgFornecedor.CurrentRow.Cells[6].Value.ToString();
+            textBox6.Text = dgFornecedor.CurrentRow.Cells[12].Value.ToString();
+            txtTelefone.Text = dgFornecedor.CurrentRow.Cells[11].Value.ToString();
+            txtCidade.Text = dgFornecedor.CurrentRow.Cells[8].Value.ToString();
+            txtCep.Text = dgFornecedor.CurrentRow.Cells[10].Value.ToString();
+    
+
             if (dgFornecedor.CurrentRow.Cells[3].Value.ToString() == ((int)TipoPessoa.PESSOA_FISICA).ToString())
                 pessoaFisica.Checked = true;
             else
@@ -376,6 +389,11 @@ namespace Apresentacao
         {
             modo = 0;
             Habilita();
+        }
+
+        private void txtCpf_TextChanged_1(object sender, EventArgs e)
+        {
+
         }
     }
 }
