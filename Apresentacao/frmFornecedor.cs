@@ -315,19 +315,25 @@ namespace Apresentacao
                 Id = -1;
             else
                 Id = Convert.ToInt32(txtId.Text);
-
-            Nome = txtNome.Text;
-            Email = txtEmail.Text;
-            TipoPessoa tp = pessoaFisica.Checked ? TipoPessoa.PESSOA_FISICA : TipoPessoa.PESSOA_JURIDICA;
-            cpf_cnpj = txtCpf.Text;
-            rua = txtRua.Text;
-            numero = txtNumero.Text;
-            bairro = txtBairro.Text;
-            cidade = txtCidade.Text;
-            complemento = txtComplemento.Text;
-            cep = txtCep.Text;
-            telefone = txtTelefone.Text;
-            celular = txtTelefone.Text;
+            if (txtNome.Text != string.Empty && txtEmail.Text != string.Empty && pessoaFisica.Checked || pessoaJuridica.Checked && txtCpf.Text != string.Empty && txtRua.Text != string.Empty && txtNumero.Text != string.Empty && txtBairro.Text != string.Empty && txtCidade.Text != string.Empty && txtComplemento.Text != string.Empty && txtCep.Text != string.Empty && txtTelefone.Text != string.Empty && textBox6.Text != string.Empty) {
+                Nome = txtNome.Text;
+                Email = txtEmail.Text;
+                TipoPessoa tp = pessoaFisica.Checked ? TipoPessoa.PESSOA_FISICA : TipoPessoa.PESSOA_JURIDICA;
+                cpf_cnpj = txtCpf.Text;
+                rua = txtRua.Text;
+                numero = txtNumero.Text;
+                bairro = txtBairro.Text;
+                cidade = txtCidade.Text;
+                complemento = txtComplemento.Text;
+                cep = txtCep.Text;
+                telefone = txtTelefone.Text;
+                celular = textBox6.Text;
+            }
+            else
+            {
+                MessageBox.Show("Erro ao cadastrar fornecedor! Preencha todos os campos!");
+            }
+           
 
             if (modo == 1)
             {
