@@ -26,6 +26,8 @@ namespace Apresentacao
         public frmFornecedor()
         {
             InitializeComponent();
+            Texto = "";
+
             _fornecedorService = new FornecedorService();
 
             dgFornecedor.Columns.Add("Id", "ID");
@@ -75,6 +77,9 @@ namespace Apresentacao
                     btnCancelar.Enabled = true;
                     grpDados.Enabled = true;
                     dgFornecedor.Enabled = false;
+                    txtId.Visible = false;
+                    label1.Visible = false;
+
                     break;
                 case 2:
                     btnNovo.Enabled = false;
@@ -96,6 +101,15 @@ namespace Apresentacao
             txtId.Clear();
             pessoaFisica.Checked = false;
             pessoaJuridica.Checked = false;
+            txtCpf.Clear();
+            txtBairro.Clear();
+            txtRua.Clear();
+            txtNumero.Clear();
+            txtComplemento.Clear();
+            txtTelefone.Clear();
+            txtCidade.Clear();
+            txtCep.Clear();
+            textBox6.Clear();
 
             txtNome.Focus();
         }
@@ -394,6 +408,26 @@ namespace Apresentacao
         private void txtCpf_TextChanged_1(object sender, EventArgs e)
         {
 
+        }
+
+        private string _texto;
+        public string Texto { get => _texto; set => _texto = value; }
+
+
+        private void textBox1_DragEnter_1(object sender, DragEventArgs e)
+        {
+            if (!string.IsNullOrEmpty(textBox1.Text))
+            {
+                Texto = textBox1.Text;
+            }
+
+            DataTable tbClientes = _fornecedorService.filterByName(Texto);
+            if (tbClientes != null)
+            {
+                dgFornecedor.DataSource = tbClientes;
+                dgFornecedor.Refresh();
+            }
+            MessageBox.Show("Teste");
         }
     }
 }

@@ -186,6 +186,7 @@ namespace Apresentacao
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(335, 26);
             this.textBox1.TabIndex = 61;
+            this.textBox1.DragEnter += new System.Windows.Forms.DragEventHandler(this.textBox1_DragEnter_1);
             // 
             // pessoaJuridica
             // 
