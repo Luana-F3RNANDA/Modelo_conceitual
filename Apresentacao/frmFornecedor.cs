@@ -414,20 +414,24 @@ namespace Apresentacao
         public string Texto { get => _texto; set => _texto = value; }
 
 
-        private void textBox1_DragEnter_1(object sender, DragEventArgs e)
+        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!string.IsNullOrEmpty(textBox1.Text))
+            if (e.KeyChar == 13)
             {
-                Texto = textBox1.Text;
-            }
+                if (!string.IsNullOrEmpty(textBox1.Text))
+                {
+                    Texto = textBox1.Text;
+                }
 
-            DataTable tbClientes = _fornecedorService.filterByName(Texto);
-            if (tbClientes != null)
-            {
-                dgFornecedor.DataSource = tbClientes;
-                dgFornecedor.Refresh();
+                DataTable tbClientes = _fornecedorService.filterByName(Texto);
+                if (tbClientes != null)
+                {
+                    dgFornecedor.DataSource = tbClientes;
+                    dgFornecedor.Refresh();
+                }
+             
+
             }
-            MessageBox.Show("Teste");
         }
     }
 }
