@@ -315,55 +315,50 @@ namespace Apresentacao
                 Id = -1;
             else
                 Id = Convert.ToInt32(txtId.Text);
-            if (txtNome.Text != string.Empty && txtEmail.Text != string.Empty && pessoaFisica.Checked || pessoaJuridica.Checked && txtCpf.Text != string.Empty && txtRua.Text != string.Empty && txtNumero.Text != string.Empty && txtBairro.Text != string.Empty && txtCidade.Text != string.Empty && txtComplemento.Text != string.Empty && txtCep.Text != string.Empty && txtTelefone.Text != string.Empty && textBox6.Text != string.Empty) {
+               
                 Nome = txtNome.Text;
-                Email = txtEmail.Text;
-                TipoPessoa tp = pessoaFisica.Checked ? TipoPessoa.PESSOA_FISICA : TipoPessoa.PESSOA_JURIDICA;
-                cpf_cnpj = txtCpf.Text;
-                rua = txtRua.Text;
-                numero = txtNumero.Text;
-                bairro = txtBairro.Text;
-                cidade = txtCidade.Text;
-                complemento = txtComplemento.Text;
-                cep = txtCep.Text;
-                telefone = txtTelefone.Text;
-                celular = textBox6.Text;
-            }
-            else
-            {
-                MessageBox.Show("Erro ao cadastrar fornecedor! Preencha todos os campos!");
-            }
-           
+                    Email = txtEmail.Text;
+                    TipoPessoa tp = pessoaFisica.Checked ? TipoPessoa.PESSOA_FISICA : TipoPessoa.PESSOA_JURIDICA;
+                    cpf_cnpj = txtCpf.Text;
+                    rua = txtRua.Text;
+                    numero = txtNumero.Text;
+                    bairro = txtBairro.Text;
+                    cidade = txtCidade.Text;
+                    complemento = txtComplemento.Text;
+                    cep = txtCep.Text;
+                    telefone = txtTelefone.Text;
+                    celular = textBox6.Text;
 
-            if (modo == 1)
-            {
-                resultado = _fornecedorService.Update(null, tp, cpf_cnpj, null, Nome, rua, numero, bairro, cidade, complemento, cep, telefone, Email, celular);
-                if (resultado == "SUCESSO")
+              
+                if (modo == 1)
                 {
-                    msg = "FORNECEDOR cadastrado com sucesso!";
-                    carregaGridView();
+                    resultado = _fornecedorService.Update(null, tp, cpf_cnpj, null, Nome, rua, numero, bairro, cidade, complemento, cep, telefone, Email, celular);
+                    if (resultado == "SUCESSO")
+                    {
+                        msg = "FORNECEDOR cadastrado com sucesso!";
+                        carregaGridView();
+                    }
+                    else
+                    {
+                        msg = "Falha ao cadastrar FORNECEDOR!";
+                    }
+                    MessageBox.Show(msg, "Aviso do sistema!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                else
+                else if (modo == 2)
                 {
-                    msg = "Falha ao cadastrar FORNECEDOR!";
+                    resultado = _fornecedorService.Update(Id, tp, cpf_cnpj, null, Nome, rua, numero, bairro, cidade, complemento, cep, telefone, Email, celular);
+                    if (resultado == "SUCESSO")
+                    {
+                        msg = "FORNECEDOR atualizado com sucesso!";
+                        carregaGridView();
+                    }
+                    else
+                    {
+                        msg = "Falha ao atualizar FORNECEDOR!";
+                    }
+                    MessageBox.Show(msg, "Aviso do sistema!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                MessageBox.Show(msg, "Aviso do sistema!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else if (modo == 2)
-            {
-                resultado = _fornecedorService.Update(Id, tp, cpf_cnpj, null, Nome, rua, numero, bairro, cidade, complemento, cep, telefone, Email, celular);
-                if (resultado == "SUCESSO")
-                {
-                    msg = "FORNECEDOR atualizado com sucesso!";
-                    carregaGridView();
-                }
-                else
-                {
-                    msg = "Falha ao atualizar FORNECEDOR!";
-                }
-                MessageBox.Show(msg, "Aviso do sistema!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-
+          
             modo = 0;
             Habilita();
 
