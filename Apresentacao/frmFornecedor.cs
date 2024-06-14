@@ -424,15 +424,20 @@ namespace Apresentacao
                     Texto = textBox1.Text;
                 }
 
-                DataTable tbClientes = _fornecedorService.filterByName(Texto);
-                if (tbClientes != null)
+                DataTable tbFornecedor = _fornecedorService.filterByName(Texto);
+                if (tbFornecedor != null)
                 {
-                    dgFornecedor.DataSource = tbClientes;
+                    dgFornecedor.DataSource = tbFornecedor;
                     dgFornecedor.Refresh();
                 }
              
 
             }
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
