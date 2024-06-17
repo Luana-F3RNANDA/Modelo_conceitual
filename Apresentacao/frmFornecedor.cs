@@ -317,12 +317,17 @@ namespace Apresentacao
                 Id = Convert.ToInt32(txtId.Text);
                
                 Nome = txtNome.Text;
-                    Email = txtEmail.Text;
-                    TipoPessoa tp = pessoaFisica.Checked ? TipoPessoa.PESSOA_FISICA : TipoPessoa.PESSOA_JURIDICA;
+                Email = txtEmail.Text;
+                     if (!Email.Contains("@"))
+                            {
+                                MessageBox.Show("Preencha o campo de email com @!");
+                                return;
+                             }
+            TipoPessoa tp = pessoaFisica.Checked ? TipoPessoa.PESSOA_FISICA : TipoPessoa.PESSOA_JURIDICA;
                     cpf_cnpj = txtCpf.Text;
                     rua = txtRua.Text;
                     numero = txtNumero.Text;
-                    bairro = txtBairro.Text;
+            bairro = txtBairro.Text;
                     cidade = txtCidade.Text;
                     complemento = txtComplemento.Text;
                     cep = txtCep.Text;
