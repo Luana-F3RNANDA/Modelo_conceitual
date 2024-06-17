@@ -324,6 +324,7 @@ namespace Apresentacao
 
                                 return;
                              }
+
             TipoPessoa tp = pessoaFisica.Checked ? TipoPessoa.PESSOA_FISICA : TipoPessoa.PESSOA_JURIDICA;
                     cpf_cnpj = txtCpf.Text;
                     rua = txtRua.Text;
