@@ -321,6 +321,7 @@ namespace Apresentacao
                      if (!Email.Contains("@"))
                             {
                                 MessageBox.Show("Preencha o campo de email com @!");
+
                                 return;
                              }
             TipoPessoa tp = pessoaFisica.Checked ? TipoPessoa.PESSOA_FISICA : TipoPessoa.PESSOA_JURIDICA;
