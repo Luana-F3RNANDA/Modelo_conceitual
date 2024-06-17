@@ -329,7 +329,14 @@ namespace Apresentacao
                     telefone = txtTelefone.Text;
                     celular = textBox6.Text;
 
-              
+            if (Nome == String.Empty || Email == String.Empty || cpf_cnpj == String.Empty || rua == String.Empty || numero == String.Empty || bairro == String.Empty || cidade == String.Empty || complemento == String.Empty || cep == String.Empty || telefone == String.Empty || celular == String.Empty)
+            {
+                MessageBox.Show("Preencha todos os campos!!");
+                return;
+            }
+            else
+            {
+
                 if (modo == 1)
                 {
                     resultado = _fornecedorService.Update(null, tp, cpf_cnpj, null, Nome, rua, numero, bairro, cidade, complemento, cep, telefone, Email, celular);
@@ -358,6 +365,7 @@ namespace Apresentacao
                     }
                     MessageBox.Show(msg, "Aviso do sistema!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
+            }
           
             modo = 0;
             Habilita();
@@ -436,6 +444,11 @@ namespace Apresentacao
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtId_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {
 
         }
