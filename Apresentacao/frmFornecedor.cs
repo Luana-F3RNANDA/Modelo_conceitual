@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Dados;
+using FluentValidation.Results;
 using Negocio;
 
 namespace Apresentacao
@@ -293,6 +294,7 @@ namespace Apresentacao
         private void btnSalvar_Click_1(object sender, EventArgs e)
         {
             int Id;
+            Fornecedor fornecedor = new Fornecedor();
             TipoPessoa tipoPessoa;
             string cpf_cnpj;
             string razaoSocial;
@@ -314,32 +316,43 @@ namespace Apresentacao
             if (String.IsNullOrEmpty(txtId.Text))
                 Id = -1;
             else
-                Id = Convert.ToInt32(txtId.Text);
-               
-                Nome = txtNome.Text;
-                    Email = txtEmail.Text;
-                    TipoPessoa tp = pessoaFisica.Checked ? TipoPessoa.PESSOA_FISICA : TipoPessoa.PESSOA_JURIDICA;
-                    cpf_cnpj = txtCpf.Text;
-                    rua = txtRua.Text;
-                    numero = txtNumero.Text;
-                    bairro = txtBairro.Text;
-                    cidade = txtCidade.Text;
-                    complemento = txtComplemento.Text;
-                    cep = txtCep.Text;
-                    telefone = txtTelefone.Text;
-                    celular = textBox6.Text;
+                fornecedor.Id = Convert.ToInt32(txtId.Text);
 
-            if (Nome == String.Empty || Email == String.Empty || cpf_cnpj == String.Empty || rua == String.Empty || numero == String.Empty || bairro == String.Empty || cidade == String.Empty || complemento == String.Empty || cep == String.Empty || telefone == String.Empty || celular == String.Empty)
-            {
-                MessageBox.Show("Preencha todos os campos!!");
-                return;
-            }
-            else
-            {
+            fornecedor.Nome = txtNome.Text;
+            fornecedor.Email = txtEmail.Text;
+            fornecedor.tipoPessoa = pessoaFisica.Checked ? TipoPessoa.PESSOA_FISICA : TipoPessoa.PESSOA_JURIDICA;
+            fornecedor.cpf_cnpj = txtCpf.Text;
+            fornecedor.rua= txtRua.Text;
+            fornecedor.numero = txtNumero.Text;
+            fornecedor.bairro = txtBairro.Text;
+            fornecedor.cidade = txtCidade.Text;
+            fornecedor.complemento = txtComplemento.Text;
+            fornecedor.cep = txtCep.Text;
+            fornecedor.telefone = txtTelefone.Text;
+            fornecedor.celular = textBox6.Text;
 
-                if (modo == 1)
+            //Inicio da validação
+            if (fornecedor != null)
+            {
+                FornecedorValidation validator = new FornecedorValidation();
+                ValidationResult results = validator.Validate(fornecedor);
+                IList<ValidationFailure> failures = results.Errors;
+                if (!results.IsValid)
                 {
-                    resultado = _fornecedorService.Update(null, tp, cpf_cnpj, null, Nome, rua, numero, bairro, cidade, complemento, cep, telefone, Email, celular);
+                    foreach (ValidationFailure failure in failures)
+                    {
+                        MessageBox.Show(failure.ErrorMessage, "Aviso do sistema", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+                }
+            }
+            //Fim da validação
+
+
+
+            if (modo == 1)
+                {
+                    resultado = _fornecedorService.Update(fornecedor.Id, fornecedor.tipoPessoa,fornecedor.cpf_cnpj,fornecedor.razaoSocial,fornecedor.Nome,fornecedor.rua,fornecedor.numero,fornecedor.bairro,fornecedor.cidade,fornecedor.complemento,fornecedor.cep,fornecedor.telefone,fornecedor.Email,fornecedor.celular);
                     if (resultado == "SUCESSO")
                     {
                         msg = "FORNECEDOR cadastrado com sucesso!";
@@ -353,7 +366,7 @@ namespace Apresentacao
                 }
                 else if (modo == 2)
                 {
-                    resultado = _fornecedorService.Update(Id, tp, cpf_cnpj, null, Nome, rua, numero, bairro, cidade, complemento, cep, telefone, Email, celular);
+                    resultado = _fornecedorService.Update(fornecedor.Id, fornecedor.tipoPessoa, fornecedor.cpf_cnpj, fornecedor.razaoSocial, fornecedor.Nome, fornecedor.rua, fornecedor.numero, fornecedor.bairro, fornecedor.cidade, fornecedor.complemento, fornecedor.cep, fornecedor.telefone, fornecedor.Email, fornecedor.celular);
                     if (resultado == "SUCESSO")
                     {
                         msg = "FORNECEDOR atualizado com sucesso!";
@@ -365,7 +378,7 @@ namespace Apresentacao
                     }
                     MessageBox.Show(msg, "Aviso do sistema!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-            }
+            
           
             modo = 0;
             Habilita();
