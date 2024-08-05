@@ -398,6 +398,7 @@ namespace Apresentacao
                 if (resultado == "SUCESSO")
                 {
                     msg = "FORNECEDOR excluido com sucesso!";
+
                     carregaGridView();
                 }
                 else
