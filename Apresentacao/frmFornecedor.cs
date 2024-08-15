@@ -15,6 +15,7 @@ namespace Apresentacao
 {
     public partial class frmFornecedor : Form
     {
+      
 
         private readonly FornecedorService _fornecedorService;
         private DataTable tblFornecedor = new DataTable();
@@ -27,6 +28,7 @@ namespace Apresentacao
         public frmFornecedor()
         {
             InitializeComponent();
+        
             Texto = "";
 
             _fornecedorService = new FornecedorService();
@@ -118,6 +120,7 @@ namespace Apresentacao
 
         private void frmFornecedor_Load(object sender, System.EventArgs e)
         {
+          
             pessoaFisica.Text = TipoPessoa.PESSOA_FISICA.ToString();
             pessoaJuridica.Text = TipoPessoa.PESSOA_JURIDICA.ToString();
 
@@ -465,6 +468,15 @@ namespace Apresentacao
         private void txtId_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {
 
+        }
+
+        private void btnImprimir_Click(object sender, EventArgs e)
+        {
+         
+            using ( var frm = new Form1(tblFornecedor))
+            {
+                frm.ShowDialog();
+            }
         }
     }
 }
