@@ -31,10 +31,14 @@ namespace Apresentacao
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.FornecedorBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             ((System.ComponentModel.ISupportInitialize)(this.FornecedorBindingSource)).BeginInit();
             this.SuspendLayout();
+            // 
+            // FornecedorBindingSource
+            // 
+            this.FornecedorBindingSource.DataSource = typeof(Dados.Fornecedor);
             // 
             // reportViewer1
             // 
@@ -49,10 +53,6 @@ namespace Apresentacao
             this.reportViewer1.Size = new System.Drawing.Size(800, 450);
             this.reportViewer1.TabIndex = 0;
             // 
-            // FornecedorBindingSource
-            // 
-            this.FornecedorBindingSource.DataSource = typeof(Dados.Fornecedor);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -60,7 +60,7 @@ namespace Apresentacao
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.reportViewer1);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Relatorio";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.FornecedorBindingSource)).EndInit();
             this.ResumeLayout(false);

@@ -13,6 +13,11 @@ namespace Apresentacao
     public partial class Form1 : Form
     {
         DataTable dt = new DataTable();
+
+        public Form1()
+        {
+        }
+
         public Form1(DataTable dt)
         {
             InitializeComponent();
