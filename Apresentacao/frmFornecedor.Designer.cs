@@ -445,6 +445,7 @@ namespace Apresentacao
             this.btnImprimir.TabIndex = 37;
             this.btnImprimir.Text = "Imprimir";
             this.btnImprimir.UseVisualStyleBackColor = true;
+            this.btnImprimir.Visible = false;
             this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
             // 
             // frmFornecedor

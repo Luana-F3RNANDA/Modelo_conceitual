@@ -18,7 +18,7 @@ namespace Apresentacao
       
 
         private readonly FornecedorService _fornecedorService;
-        private DataTable tblFornecedor = new DataTable();
+        public DataTable tblFornecedor = new DataTable();
 
         //sinaliza qual operação está em andamento
         //0 = nada
