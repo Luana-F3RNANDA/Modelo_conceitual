@@ -13,7 +13,7 @@ namespace Dados
         {
             RuleFor(fornecedor => fornecedor.Nome).NotEmpty().WithMessage("Campo nome é OBREGATORIO!!");
 
-            RuleFor(fornecedor => fornecedor.Nome).Length(1, 45).WithMessage("Campo nome deve ter no maximo 45 caracteres");
+            RuleFor(fornecedor => fornecedor.Nome).Length(3, 45).WithMessage("Campo nome deve ter no maximo 45 caracteres");
 
             RuleFor(fornecedor => fornecedor.cpf_cnpj).NotEmpty().WithMessage("Campo cpf é obrigatorio");
 

@@ -157,7 +157,7 @@ namespace Dados
                 if (!string.IsNullOrEmpty(pNome))
                 {
                     selectSql = String.Format("SELECT * FROM fornecedor WHERE nome LIKE @pNome");
-                    pNome = '%' + pNome + '%';
+                    pNome = pNome + '%';
                 }
                 else
                 {
